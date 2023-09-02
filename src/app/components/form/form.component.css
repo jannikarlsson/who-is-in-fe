@@ -1,0 +1,15 @@
+.icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 3rem;
+}
+
+.highlight {
+    color: goldenrod;
+}

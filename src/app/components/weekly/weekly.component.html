@@ -1,0 +1,13 @@
+<button (click)="editChange()" class="button is-warning">Edit</button>
+
+    
+<div class="container has-text-centered mb-3">
+    <app-stepper></app-stepper>
+</div>
+
+<ng-container *ngIf="!edit;else Edit">
+    <app-view [weeklyData]="weeklyData"></app-view>
+</ng-container>
+<ng-template #Edit>
+    <app-edit></app-edit>
+</ng-template>

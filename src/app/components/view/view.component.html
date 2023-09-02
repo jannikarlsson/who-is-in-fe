@@ -1,0 +1,8 @@
+<div class="container mb-3" *ngFor="let day of daysOfTheWeek; let i=index">
+    <div class="notification is-primary">
+        <div class="has-text-centered">{{day.toUpperCase()}}</div>
+        <div *ngFor="let user of getDayData(i+1)">
+            <h2 class="title is-4" [ngClass]="{current: user.user == currentUser}">{{user.user}}</h2>
+        </div>
+    </div>
+</div>

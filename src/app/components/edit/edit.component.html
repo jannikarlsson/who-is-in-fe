@@ -1,0 +1,6 @@
+<div class="container mb-3" *ngFor="let day of daysOfTheWeek; let i=index">
+    <div class="notification is-warning">
+        <div class="has-text-centered">{{day.toUpperCase()}}</div>
+        <app-form [day]="i+1"></app-form>
+    </div>
+</div>
