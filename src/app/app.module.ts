@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { LogEffects } from './state/log.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { DayComponent } from './components/day/day.component';
 import { LoginComponent } from './components/login/login.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,13 @@ import { LoginComponent } from './components/login/login.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ log: logReducer }, { initialState: { log: initialState } }),
-    EffectsModule.forRoot([LogEffects])
+    EffectsModule.forRoot([LogEffects]),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

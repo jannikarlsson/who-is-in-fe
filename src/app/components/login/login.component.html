@@ -1,14 +1,14 @@
 <div class="container mt-6">
     <form class="box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="field">
-            <label class="label">Email</label>
+            <label class="label">Användarnamn</label>
             <div class="control">
                 <input class="input" type="email" placeholder="e.g. alex@example.com" formControlName="username">
             </div>
         </div>
     
         <div class="field">
-            <label class="label">Password</label>
+            <label class="label">Lösenord</label>
             <div class="control">
                 <input class="input" type="password" placeholder="********" formControlName="password">
             </div>
