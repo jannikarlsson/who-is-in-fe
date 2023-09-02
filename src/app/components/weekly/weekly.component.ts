@@ -4,6 +4,7 @@ import { Row } from '../../models/row';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { LogActions, LogState, selectWeeklyData } from 'src/app/state';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-weekly',
@@ -18,6 +19,8 @@ export class WeeklyComponent {
   currentWeek = getISOWeek(this.currentDate);
 
   weeklyData: Row[] = [];
+
+  editIcon = faPenToSquare;
 
   constructor(private store: Store<LogState>) {
     this.store.select(selectWeeklyData).pipe(takeUntilDestroyed()).subscribe((weeklyData: Row[]) => {

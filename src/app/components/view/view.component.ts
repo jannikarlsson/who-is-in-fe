@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Row } from 'src/app/models/row';
 import { LogState, selectUser } from 'src/app/state';
 import { daysOfTheWeek } from 'src/app/utils';
+import { faBuilding, faBowlFood, faPersonDrowning, faMartiniGlassCitrus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-view',
@@ -15,6 +16,11 @@ export class ViewComponent {
 
   daysOfTheWeek = daysOfTheWeek;
   currentUser: string = "";
+
+  office = faBuilding;
+  lunch = faBowlFood;
+  swim = faPersonDrowning;
+  aw = faMartiniGlassCitrus;
 
   constructor(private store: Store<LogState>) {
     this.store.select(selectUser).pipe(takeUntilDestroyed()).subscribe((user: string) => {

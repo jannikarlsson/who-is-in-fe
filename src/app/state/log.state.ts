@@ -5,6 +5,7 @@ export interface LogState {
     year: number,
     week: number;
     user: string;
+    isLoggedIn: boolean;
     weeklyData: Row[]
 }
 
@@ -13,5 +14,6 @@ export const initialState: LogState = {
     year: 0,
     week: 0,
     user: 'Janni',
+    isLoggedIn: false,
     weeklyData: []
 };

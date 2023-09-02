@@ -1,14 +1,5 @@
 <div class="icon-container">
-    <div class="icon" (click)="onClick('office')" [ngClass]="{highlight: formGroup.get('office')?.value }">
-        <fa-icon [icon]="office" />
+    <div *ngFor="let iconName of iconNames" class="icon" (click)="onClick(iconName)" [ngClass]="getClass(iconName)">
+      <fa-icon [icon]="iconMap[iconName]" />
     </div>
-    <div class="icon" (click)="onClick('lunch')" [ngClass]="{highlight: formGroup.get('lunch')?.value }">
-        <fa-icon [icon]="lunch" />
-    </div>
-    <div class="icon" (click)="onClick('swim')" [ngClass]="{highlight: formGroup.get('swim')?.value }">
-        <fa-icon [icon]="swim" />
-    </div>
-    <div class="icon" (click)="onClick('aw')" [ngClass]="{highlight: formGroup.get('aw')?.value }">
-        <fa-icon [icon]="aw" />
-    </div>
-</div>
+  </div>

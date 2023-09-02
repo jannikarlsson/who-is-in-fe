@@ -13,6 +13,11 @@ export const selectWeek = createSelector(
   (state) => state.week
 );
 
+export const selectIsLoggedIn = createSelector(
+    selectLogState,
+    (state) => state.isLoggedIn
+  );
+
 export const selectYear = createSelector(
     selectLogState,
     (state) => state.year

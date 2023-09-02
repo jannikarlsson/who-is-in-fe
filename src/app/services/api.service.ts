@@ -9,6 +9,7 @@ export class ApiService {
 
   private baseUrl = 'http://localhost:3000/api';
   private logUrl = '/log';
+  private loginUrl = '/users/login';
 
   constructor(private http: HttpClient) {}
 
@@ -27,5 +28,10 @@ export class ApiService {
     return this.http.patch(`${this.baseUrl}${this.logUrl}/${value.id}`, {
       value
     })
+  }
+
+  login(username: string, password: string) {
+    console.log(username, password)
+    return this.http.post(`${this.baseUrl}${this.loginUrl}`, { username, password })
   }
 }

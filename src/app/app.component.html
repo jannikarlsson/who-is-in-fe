@@ -1,1 +1,7 @@
-<app-weekly></app-weekly>
+<ng-container *ngIf="(isLoggedIn$ | async) === true; else LogIn">
+  <app-weekly class="is-warning"></app-weekly>
+</ng-container>
+
+<ng-template #LogIn>
+  <app-login></app-login>
+</ng-template>

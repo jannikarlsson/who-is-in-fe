@@ -49,4 +49,10 @@ export const logReducer = createReducer(
     weeklyData: addNewRow(state.weeklyData, rowToUpdate)
   })),
 
+  on(LogActions.loginSuccess, (state, { username }) => ({
+    ...state,
+    isLoggedIn: true,
+    username
+  })),
+
 );

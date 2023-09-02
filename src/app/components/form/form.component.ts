@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup } from '@angular/forms';
-import { faBuilding, faBowlFood, faPersonDrowning, faMartiniGlassCitrus } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding, faBowlFood, faPersonDrowning, faMartiniGlassCitrus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Form } from 'src/app/models/form';
 import { Row } from 'src/app/models/row';
@@ -27,10 +27,12 @@ export class FormComponent {
     aw: new FormControl<boolean>(false)
   })
 
-  office = faBuilding;
-  lunch = faBowlFood;
-  swim = faPersonDrowning;
-  aw = faMartiniGlassCitrus;
+  iconMap: { [key: string]: IconDefinition } = {
+    office: faBuilding,
+    lunch: faBowlFood,
+    swim: faPersonDrowning,
+    aw: faMartiniGlassCitrus
+  };
 
   weekly: Row[] | null = null;
 
@@ -43,6 +45,14 @@ export class FormComponent {
 
   ngOnChanges() {
     this.setFormValues();
+  }
+
+  getClass(icon: string) {
+    return this.formGroup.get(icon)?.value ? 'has-text-success' : 'has-text-danger';
+  }
+
+  get iconNames(): string[] {
+    return Object.keys(this.iconMap);
   }
 
   setFormValues() {

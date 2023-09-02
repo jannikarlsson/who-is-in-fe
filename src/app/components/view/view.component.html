@@ -1,8 +1,23 @@
 <div class="container mb-3" *ngFor="let day of daysOfTheWeek; let i=index">
-    <div class="notification is-primary">
-        <div class="has-text-centered">{{day.toUpperCase()}}</div>
-        <div *ngFor="let user of getDayData(i+1)">
-            <h2 class="title is-4" [ngClass]="{current: user.user == currentUser}">{{user.user}}</h2>
+    <app-day [day]="day">
+        <div *ngFor="let row of getDayData(i+1)" class="person-row">
+            <div class="name">
+                <p>{{row.user.toUpperCase()}}</p>
+            </div>
+            <div class="icon-container">
+                <div class="icon" [ngClass]="row.office ? 'has-text-success' : 'has-text-danger'">
+                    <fa-icon [icon]="office" />
+                </div>
+                <div class="icon" [ngClass]="row.lunch ? 'has-text-success' : 'has-text-danger'">
+                    <fa-icon [icon]="lunch" />
+                </div>
+                <div class="icon" [ngClass]="row.swim ? 'has-text-success' : 'has-text-danger'">
+                    <fa-icon [icon]="swim" />
+                </div>
+                <div class="icon" [ngClass]="row.aw ? 'has-text-success' : 'has-text-danger'">
+                    <fa-icon [icon]="aw" />
+                </div>
+            </div>
         </div>
-    </div>
+    </app-day>
 </div>

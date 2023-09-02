@@ -16,6 +16,8 @@ import { logReducer } from './state/log.reducer';
 import { initialState } from './state/log.state';
 import { LogEffects } from './state/log.effects';
 import { EffectsModule } from '@ngrx/effects';
+import { DayComponent } from './components/day/day.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EffectsModule } from '@ngrx/effects';
     FormComponent,
     StepperComponent,
     EditComponent,
-    ViewComponent
+    ViewComponent,
+    DayComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
