@@ -84,10 +84,10 @@ loginUser$ = createEffect(() =>
   this.actions$.pipe(
     ofType(LogActions.login),
     switchMap((action) => {
-        console.log(action)
       return this.api.login(action.username, action.password).pipe(
-        map((response) => {
-          return LogActions.loginSuccess({ username: (<{ message: string; data: string }>response).data });
+        map((response: any) => {
+          const username = response.username;
+          return LogActions.loginSuccess({ username });
         }),
         catchError((error) => {
           console.log(error);

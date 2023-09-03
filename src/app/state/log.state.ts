@@ -13,7 +13,7 @@ export const initialState: LogState = {
     isEditMode: false,
     year: 0,
     week: 0,
-    user: 'Janni',
+    user: '',
     isLoggedIn: false,
     weeklyData: []
 };

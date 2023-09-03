@@ -7,7 +7,8 @@ import { Row } from '../models/row';
 })
 export class ApiService {
 
-  private baseUrl = 'http://localhost:3000/api';
+  // private baseUrl = 'http://localhost:3000/api';
+  private baseUrl = 'https://who-is-in.onrender.com/api';
   private logUrl = '/log';
   private loginUrl = '/users/login';
 
@@ -31,7 +32,6 @@ export class ApiService {
   }
 
   login(username: string, password: string) {
-    console.log(username, password)
     return this.http.post(`${this.baseUrl}${this.loginUrl}`, { username, password })
   }
 }

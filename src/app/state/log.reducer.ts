@@ -52,7 +52,7 @@ export const logReducer = createReducer(
   on(LogActions.loginSuccess, (state, { username }) => ({
     ...state,
     isLoggedIn: true,
-    username
+    user: username
   })),
 
 );
